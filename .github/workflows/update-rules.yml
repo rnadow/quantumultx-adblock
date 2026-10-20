@@ -1,0 +1,37 @@
+name: Update AdvertisingLite
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/update-rules.yml
+      - scripts/update_rules.py
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and validate upstream rules
+        run: python scripts/update_rules.py
+      - name: Commit changed rules
+        run: |
+          if git diff --quiet -- QuantumultX LICENSE && git ls-files --error-unmatch QuantumultX/AdvertisingLite.conf QuantumultX/AdvertisingLite.list LICENSE >/dev/null 2>&1; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add QuantumultX/AdvertisingLite.conf QuantumultX/AdvertisingLite.list LICENSE
+          git commit -m "Update AdvertisingLite rules"
+          git push
