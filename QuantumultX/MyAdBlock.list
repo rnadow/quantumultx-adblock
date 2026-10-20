@@ -1,2 +1,22 @@
-# Quantumult X 手动维护的分流规则
-# 每行一条，例如：HOST,ads.example.com,REJECT
+# Quantumult X 手动维护的广告域名分流规则
+# 整理日期：2026-10-20。仅加入广告专用域名；来源见 ../SOURCES.md。
+
+# 穿山甲、字节广告
+HOST-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+HOST,ad.snssdk.com,REJECT
+
+# 快手广告
+HOST,ad.partner.gifshow.com,REJECT
+HOST,ad.kuaishou.com,REJECT
+
+# 百度广告
+HOST,mobads.baidu.com,REJECT
+HOST,mssp.baidu.com,REJECT
+HOST,cpro.baidu.com,REJECT
+
+# 汽车之家广告
+HOST,adproxy.autohome.com.cn,REJECT
+
+# Google 广告
+HOST,adservice.google.com,REJECT
+HOST-SUFFIX,doubleclick.net,REJECT
