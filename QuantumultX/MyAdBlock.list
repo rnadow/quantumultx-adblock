@@ -1,9 +1,18 @@
 # Quantumult X 手动维护的广告域名分流规则
-# 整理日期：2026-10-20。仅加入广告专用域名；来源见 ../SOURCES.md。
+# 整理日期：2026-10-21。仅加入广告专用域名；来源见 ../SOURCES.md。
 
 # 穿山甲、字节广告
 HOST-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+HOST-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
+HOST-SUFFIX,pangolin-dsp-toutiao.com,REJECT
 HOST,ad.snssdk.com,REJECT
+
+# 腾讯广告、QQ 浏览器、QQ 音乐
+HOST-SUFFIX,gdt.qq.com,REJECT
+HOST,ad.browser.qq.com,REJECT
+HOST,mqqad.html5.qq.com,REJECT
+HOST,tmead.y.qq.com,REJECT
+HOST,tmeadcomm.y.qq.com,REJECT
 
 # 快手广告
 HOST,ad.partner.gifshow.com,REJECT
